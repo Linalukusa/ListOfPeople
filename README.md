@@ -33,4 +33,7 @@ Username: People
 Password: admin123456
 
 ## Interface
-The user interface looks like the following:
+The user interface looks like on the following:
+
+![image](https://user-images.githubusercontent.com/48994734/181648734-b1929ad4-0ca7-44fd-80bf-a615ae531625.png)
+
