@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+<meta charset = "UTF-8">
+<meta name = "viewport" content = "width=device=width", initial-scale = "1.0">
+<meta http-equiv = "X-UA-Compatible"  content = "ie=edge">
+<title> People </title>
+
+  <!-- Favicons -->
+<link href = "{% static 'img/favicon.png' %}" rel="icon">
+
+  <!----CSS File----->
+<link rel = "stylesheet" href = "{% static 'css/bootstrap.min.css' %}">
+<link rel = "stylesheet" href = "{% static 'css/bootstrap.css' %}">
+
+</head>
+
+<body>
+
+<!-- Main Content-->
+{% block content %} {% endblock %}
+
+  <!-- Javascript ---->
+  <script src = "{% static 'js/bootstrap.min.js' %}"></script>
+
+  <!------Jquery---->
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+ <!------Javascript Submit Button---->
+  <script>
+    $(document).on('submit', '#post-form',function(e){ //post-form id property so that jQuery can detect form submission
+        $.ajax({
+            type:'POST',  //POST because data is sent to the database
+            url:'{% url "index" %}', //URL to send the request to
+            data:{
+                name:$('#name').val(), //Get the value of name by id and sendit with data parameter to the server
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(), //Get value of csrf_token to avoid 403 Forbidden error
+                action: 'post'
+            },
+            success:function(json){
+                document.getElementById("post-form").reset();     //Clean the form after submission 
+                $(".posts").prepend('<div class="col-md-6">'+     //Prepend new post right away into the posts row
+                    '<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">' +
+                        '<div class="col p-4 d-flex flex-column position-static">' +
+                            '<h3 class="mb-0">' + json.name + '</h3>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' 
+                ) // Display people name without refreshing the page
+            },
+            error : function(xhr,errmsg,err) {
+            console.log(xhr.status + ": " + xhr.responseText); // provide detail information about the error to the console
+        }
+        });
+    });
+  </script>
+</body>
+</html>

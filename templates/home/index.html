@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class = "container contact-form">
+
+<!-- ======= Form Section ======= -->
+    <form method = "POST" id = "post-form">
+        {% csrf_token %}
+
+        <div class = "mb-3" >
+            <div class = "col-12 text-center">
+                <br>
+                <h1 class="fw-light"> List of People </h1>
+            </div>
+
+            <label  class = "form-label"> Enter Your Full Name </label>           
+            <input  type  = "text" class = "form-control" id = "name"  placeholder = "Full Name" required>
+        </div>
+    
+        <div class = "d-grid gap-2 col-6 mx-auto">
+            <button type = "submit" class = "btn btn-primary"> Submit </button>
+        </div>
+    </form>
+<!-- End Form Section -->
+
+      <br>
+
+<!-- Display Name Section -->
+    <div class = "col-12 text-center">
+        <br>
+        <h1 class = "fw-light">Name of People</h1>
+    </div>
+
+    <div class = "row mb-2 posts">
+        {% for post in posts %}
+
+        <div class = "col-md-6">
+            <div class = "row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+                <div class = "col p-4 d-flex flex-column position-static">
+                    <p class = "mb-auto">{{post.name}}</p>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+<!-- End Display Name Section -->
+
+</div>  
+
+{% endblock %}
