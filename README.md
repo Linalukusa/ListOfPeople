@@ -7,7 +7,9 @@ This application is developed with Django (Python) and the database used is Post
 The first thing to do is to clone the repository:
 
 $ git clone https://github.com/gocardless/sample-django-app.git
+
 $ cd ListOfPeople_Project
+
 Create a virtual environment to install dependencies in and activate it:
 
 $ python -m venv ./venv
