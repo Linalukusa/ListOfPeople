@@ -30,6 +30,7 @@ And navigate to http://127.0.0.1:8000/.
 To login as an admin, navigate to http://127.0.0.1:8000/admin
 
 Username: People
+
 Password: admin123456
 
 ## Interface
