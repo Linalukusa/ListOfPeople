@@ -1,6 +1,6 @@
 # ListOfPeople
 ## Overview
-This application is developed with Django (Python) and the database used is Postresql. It allows the user to enter the names of people in a text box and save the data to the database. database. Jquery 3.6.0 was used to trigger the submit button, it helped to submit the form and display the data without refreshing the page.
+This application is developed with Django (Python) and the database used is Postresql. It allows the user to enter the names of people in a textbox and save the data to the database. Jquery 3.6.0 was used to trigger the submit button. The app has a javascript ajax which overwrites the form's submit button. It allows to submit the form and display the data without refreshing the page.
 
 ## Setup
 
