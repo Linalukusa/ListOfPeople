@@ -13,12 +13,17 @@ $ cd ListOfPeople_Project
 Create a virtual environment to install dependencies in and activate it:
 
 $ python -m venv ./venv
+
 To activate the virtual environment
+
 $ source env/bin/activate //Mac
+
 $ ./venv/Scripts/activate //Windows
+
 Then install the dependencies:
 
 (env)$ pip install -r requirements.txt
+
 Note the (venv) in front of the prompt. This indicates that this terminal session operates in a virtual environment set up by virtual environment.
 
 Once pip has finished downloading the dependencies:
